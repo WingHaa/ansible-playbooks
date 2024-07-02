@@ -1,0 +1,6 @@
+---
+- name: Install Arch Linux specific packages
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ arch_packages }}"

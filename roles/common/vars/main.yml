@@ -1,0 +1,7 @@
+---
+common_packages:
+  - vim
+  - git
+  - tmux
+  - btop
+  - python
