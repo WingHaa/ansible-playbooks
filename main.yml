@@ -1,18 +1,39 @@
 ---
-- name: Configure Workstation
+- name: Update package cache
+  hosts: all
+  tags: always
+  become: true
+  pre_tasks:
+    - name: pre-run | update package cache (arch)
+      tags: always
+      pacman: update_cache=yes
+      changed_when: False
+      when: ansible_distribution == "Archlinux"
+
+    - name: pre-run | update package cache (debian, etc)
+      tags: always
+      apt: update_cache=yes
+      changed_when: False
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: Install applications
   hosts: all
   become: yes
-
   roles:
-    - common
-
-  tasks:
-    - name: Include distribution-specific tasks for Arch Linux
-      include_role:
-        name: arch
-      when: ansible_distribution == 'ArchLinux'
-
-    - name: Include distribution-specific tasks for Ubuntu
-      include_role:
-        name: ubuntu
-      when: ansible_distribution == 'Ubuntu'
+    - role: precondition
+    - role: packages/apps
+    - role: packages/base
+    - role: packages/breeze
+    - role: packages/disk-monitoring
+    - role: packages/docker
+    - role: packages/flatpak
+    - role: packages/font
+    - role: packages/kvm-host
+    - role: packages/login-sddm
+    - role: packages/modern-unix
+    - role: packages/printer
+    - role: packages/wm-base
+    - role: packages/wm-hyprland
+    - role: packages/wm-xorg
+    - role: packages/xorg
+    - role: packages/zsh

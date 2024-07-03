@@ -1,0 +1,50 @@
+apps:
+  Ubuntu:
+    packages:
+      - barrier
+      - birdfont
+      - darktable
+      - element-desktop
+      - firefox
+      - flameshot
+      - freerdp
+      - gimp
+      - gitg
+      - handbrake
+      - handbrake-cli
+      - libvncserver
+      - meld
+      - mkvtoolnix-cli
+      - mkvtoolnix-gui
+      - mpv
+      - obs-studio
+      - thunderbird
+      - brave
+      - visual-studio-code
+
+  Archlinux:
+    packages:
+      - barrier
+      - birdfont
+      - darktable
+      - element-desktop
+      - firefox
+      - flameshot
+      - freerdp
+      - gimp
+      - gitg
+      - handbrake
+      - handbrake-cli
+      - libvncserver
+      - meld
+      - mkvtoolnix-cli
+      - mkvtoolnix-gui
+      - mpv
+      - obs-studio
+      - thunderbird
+
+    aur_packages:
+      - rbw-git
+      - brave-bin
+      - visual-studio-code-bin
+      - vopono-git

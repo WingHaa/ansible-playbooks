@@ -1,0 +1,84 @@
+base:
+  Ubuntu:
+    services:
+    packages:
+    pip_packages:
+
+  Archlinux:
+    services:
+      - haveged
+      - NetworkManager
+      - rngd
+
+    packages:
+      - arch-audit
+      - bash-completion
+      - base-devel
+      - bind-tools
+      - bridge-utils
+      - cargo-outdated
+      - cifs-utils
+      - clang
+      - compiler-rt
+      - cryfs
+      - curl
+      - devtools
+      - diff-so-fancy
+      - dosfstools
+      - git-lfs
+      - git
+      - gnu-netcat
+      - gnupg
+      - go
+      - gzip
+      - haveged
+      - hdparm
+      - i2c-tools
+      - lm_sensors
+      - man-db
+      - man-pages
+      - mlocate
+      - mkcert
+      - neovim
+      - net-tools
+      - networkmanager
+      - nfs-utils
+      - nodejs
+      - npm
+      - ntfs-3g
+      - nvme-cli
+      - oath-toolkit
+      - openssh
+      - openvpn
+      - p7zip
+      - pkgfile
+      - powertop
+      - pv
+      - pyenv
+      - python-pip
+      - python-virtualenv
+      - python
+      - rclone
+      - reflector
+      - rng-tools
+      - rsync
+      - ruby
+      - rustup
+      - sshfs
+      - sudo
+      - tar
+      - ufw
+      - unzip
+      - usb_modeswitch
+      - usbutils
+      - valgrind
+      - vde2
+      - wget
+      - whois
+      - wireguard-tools
+      - wol
+      - xdg-user-dirs
+      - zip
+
+    pip_packages:
+      - pynvim

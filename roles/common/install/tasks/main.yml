@@ -1,0 +1,40 @@
+---
+
+- block:
+  # root install
+  - name: 'Install packages'
+    package:
+      name: "{{ packages }}"
+      state: latest
+    when: packages is defined and packages
+
+  - name: "Install AUR packages"
+    kewlfft.aur.aur:
+      name: "{{ aur_packages }}"
+    become_user: "{{ username }}"
+    when: aur_packages is defined and aur_packages
+
+  - name: 'Install pip packages for root'
+    pip:
+      name: "{{ item }}"
+    with_items: "{{ pip_packages }}"
+    when: pip_packages is defined and pip_packages
+
+  - name: 'Enable systemd services'
+    systemd:
+      name: '{{ item }}'
+      state: 'started'
+      enabled: 'yes'
+    with_items: "{{ services }}"
+    when: services is defined and services
+
+  become: true
+
+
+- block:
+  # user install
+  - name: 'Install pip packages for user'
+    pip:
+      name: "{{ item }}"
+    with_items: "{{ pip_packages }}"
+    when: pip_packages is defined and pip_packages

@@ -1,6 +1,0 @@
----
-- name: Install Ubuntu specific packages
-  ansible.builtin.package:
-    name: "{{ item }}"
-    state: present
-  loop: "{{ ubuntu_packages }}"

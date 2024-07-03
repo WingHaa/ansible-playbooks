@@ -1,0 +1,47 @@
+---
+- block:
+  # root
+  - name: "Get user home stat"
+    stat:
+      path: "/home/{{ username }}"
+    register: user_home
+
+  - name: "Throw error if user home not exists"
+    fail:
+      msg: "/home/{{ username }} does not exists"
+    when: not user_home.stat.exists
+
+  - name: Update & upgrade package cache (Archlinux)
+    block:
+      - name: 'archlinux-keyring'
+        state: latest
+        update_cache: yes
+        upgrade: yes
+    when: ansible_distribution == "Archlinux"
+
+  - name: Update & upgrade package cache (Ubuntu)
+    apt:
+      update_cache: yes
+      upgrade: yes
+    when: ansible_distribution in ['Ubuntu', 'LinuxMint', 'Pop']
+
+  - name: 'Install base packages'
+    package:
+      name:
+        - openssl
+        - python-pip
+        - python-setuptools
+        - rustup
+      state: latest
+
+  - name: 'rustup install stable for {{ username }} user'
+    shell: |
+      rustup install stable
+    become_user: "{{ username }}"
+
+  - name: 'rustup set stable as default for {{ username }} user'
+    shell: |
+      rustup default stable
+    become_user: "{{ username }}"
+
+  become: true
