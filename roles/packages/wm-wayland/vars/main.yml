@@ -1,0 +1,17 @@
+wm_wayland:
+
+
+  packages:
+    - grim
+    - libappindicator-gtk3
+    - mako
+    - slurp
+    - wtype
+    - bemenu-wayland
+    - ttf-roboto-mono
+
+
+  aur_packages:
+    - clipman
+    - tofi
+

@@ -1,0 +1,9 @@
+
+nix:
+
+  packages:
+    - nix
+
+
+  services:
+    - nix-daemon

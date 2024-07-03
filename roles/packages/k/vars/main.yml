@@ -1,0 +1,28 @@
+apps:
+  packages:
+    - barrier
+    - birdfont
+    - darktable
+    - element-desktop
+    - firefox
+    - flameshot
+    - freerdp
+    - gimp
+    - gitg
+    - handbrake
+    - handbrake-cli
+    - libvncserver
+    - meld
+    - mkvtoolnix-cli
+    - mkvtoolnix-gui
+    - mpv
+    - obs-studio
+    - thunderbird
+
+
+  aur_packages:
+    - rbw-git
+    - brave-bin
+    # - spotify-adblock-git
+    - visual-studio-code-bin
+    - vopono-git

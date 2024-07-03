@@ -1,0 +1,6 @@
+login_sddm:
+
+  packages:
+    - noto-fonts
+    - qt5
+    - sddm

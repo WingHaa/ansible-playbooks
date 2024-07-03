@@ -1,0 +1,11 @@
+wm_hyprland:
+
+  packages:
+    - wtype
+
+  aur_packages:
+    - tofi
+    - waybar-hyprland-git
+    - hyprland-bin
+    - hyprpicker-git
+    - hyprpaper-git
