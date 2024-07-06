@@ -7,7 +7,7 @@
         - hddtemp
         - procps-ng
         - smartmontools
-      state: latest
+      state: present
 
   - name: 'Enable SMART systemd service'
     ansible.builtin.systemd:
@@ -21,14 +21,14 @@
     ignore_errors: true
     changed_when: false
 
-  - name: "Install disk-monitoring scripts"
-    template:
-      src: "{{ item }}"
-      dest: "/usr/bin/{{ item | basename | regex_replace('\\.j2$', '') }}"
-      owner: "root"
-      group: "root"
-      mode: 0755
-    with_items:
-      - "disk-status.j2"
+  # - name: "Install disk-monitoring scripts"
+  #   template:
+  #     src: "{{ item }}"
+  #     dest: "/usr/bin/{{ item | basename | regex_replace('\\.j2$', '') }}"
+  #     owner: "root"
+  #     group: "root"
+  #     mode: 0755
+  #   with_items:
+  #     - "disk-status.j2"
 
   become: true

@@ -3,37 +3,16 @@
   # root
 
   - name: 'Install Docker'
-    package:
-      include_role:
-        name: common/install
-      vars:
-    packages: "{{ docker[ansible_distribution]packages }}"
-
-  - name: 'Install Docker Python Packet for root'
-    pip:
-      name: "{{ item }}"
-    with_items:
-      - "docker-compose"
+    include_role:
+      name: common/install
+    vars:
+      packages: "{{ docker[ansible_distribution]['packages'] }}"
+      services: "{{ docker[ansible_distribution]['services'] }}"
 
   - name: 'Add users to docker group'
     user:
       name: '{{ username }}'
       groups: 'docker'
       append: 'yes'
-
-  - name: 'Enable docker systemd service'
-    ansible.builtin.systemd:
-      name: 'docker'
-      state: 'started'
-      enabled: 'yes'
-
-  - name: 'Create default docker-bridge network'
-    docker_network:
-      name: docker-bridge
-
-  - name: 'Create default isolated network'
-    docker_network:
-      name: isolated
-      internal: yes
 
   become: true

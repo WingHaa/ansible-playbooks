@@ -4,8 +4,8 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ de_xfce[ansible_distribution]packages }}"
-    services: "{{ de_xfce[ansible_distribution]services }}"
+    packages: "{{ de_xfce[ansible_distribution]['packages'] }}"
+    services: "{{ de_xfce[ansible_distribution]['services'] }}"
 
 
 - name: "Set locale to {{ lang }}"

@@ -19,5 +19,5 @@ WORKDIR /home/winghaa
 
 FROM wing
 COPY . .
-CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
+CMD ["sh", "-c", "ansible-playbook $TAGS main.yml"]
 

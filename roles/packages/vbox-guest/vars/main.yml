@@ -1,8 +1,9 @@
 vbox_guest:
 
-  services:
-    - vboxservice
+  Archlinux:
+    services:
+      - vboxservice
 
-  packages:
-    - virtualbox-guest-dkms
-    - virtualbox-guest-utils
+    packages:
+      - virtualbox-guest-dkms
+      - virtualbox-guest-utils

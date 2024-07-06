@@ -1,8 +1,13 @@
 breeze:
 
-  packages:
-    - breeze-gtk
-    - breeze-icons
-    - breeze
+  Archlinux:
+    packages:
+      - breeze-gtk
+      - breeze-icons
+      - breeze
 
-
+  Ubuntu:
+    packages:
+      - breeze-gtk
+      - breeze-icons
+      - breeze

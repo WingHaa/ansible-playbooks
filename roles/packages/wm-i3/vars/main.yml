@@ -1,11 +1,8 @@
 wm_i3:
 
-  packages:
-    - i3-gaps
-    - perl-anyevent-i3
-    - python-pip
-    - python
-
-  pip_packages:
-    - i3py
-    - i3ipc
+  Archlinux:
+    packages:
+      - i3-gaps
+      - perl-anyevent-i3
+      - python-pip
+      - python

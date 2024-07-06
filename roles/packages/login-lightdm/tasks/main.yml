@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ login_lightdm[ansible_distribution]packages }}"
+    packages: "{{ login_lightdm[ansible_distribution]['packages'] }}"
 
 - name: 'Enable lightdm systemd service'
   systemd:

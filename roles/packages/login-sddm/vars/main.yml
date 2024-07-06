@@ -1,6 +1,7 @@
 login_sddm:
 
-  packages:
-    - noto-fonts
-    - qt5
-    - sddm
+  Archlinux:
+    packages:
+      - noto-fonts
+      - qt5
+      - sddm

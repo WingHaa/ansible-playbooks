@@ -1,10 +1,9 @@
 lxc:
 
+  Archlinux:
+    services:
+      - lxc
 
-  services:
-    - lxc
-
-
-  packages:
-    - lxc
-    - lxd
+    packages:
+      - lxc
+      - lxd

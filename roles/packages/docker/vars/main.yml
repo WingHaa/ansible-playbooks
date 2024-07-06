@@ -6,8 +6,9 @@ docker:
       - docker-compose
       - python
       - python-pip
-      - python-docker
-      - python-yaml
+
+    services:
+      - docker
 
   Ubuntu:
     packages:
@@ -15,5 +16,6 @@ docker:
       - docker-compose-plugin
       - python
       - python-pip
-      - python-docker
-      - python-yaml
+
+    services:
+      - docker

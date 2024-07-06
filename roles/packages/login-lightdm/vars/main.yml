@@ -1,7 +1,6 @@
 login_lightdm:
-
-
-  packages:
-    - lightdm-gtk-greeter-settings
-    - lightdm-gtk-greeter
-    - lightdm
+  Archlinux:
+    packages:
+      - lightdm-gtk-greeter-settings
+      - lightdm-gtk-greeter
+      - lightdm

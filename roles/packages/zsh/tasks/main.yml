@@ -4,9 +4,9 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ zsh[ansible_distribution]packages }}"
+    packages: "{{ zsh[ansible_distribution]['packages'] }}"
 
-- name: "change user shell to zsh"
+- name: "Change user shell to zsh"
   user:
     name: "{{ username }}"
     shell: /usr/bin/zsh

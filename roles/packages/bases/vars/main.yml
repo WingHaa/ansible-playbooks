@@ -32,6 +32,7 @@ base:
       - man-db
       - man-pages
       - mkcert
+      - mlocate
       - neovim
       - net-tools
       - networkmanager
@@ -72,9 +73,6 @@ base:
       - xdg-user-dirs
       - zip
 
-    pip_packages:
-      - pynvim
-
   #end Archlinux
 
   Ubuntu:
@@ -85,7 +83,6 @@ base:
       - rng-tools  # Ubuntu alternative to rngd
 
     packages:
-      - arch-audit
       - bash-completion
       - build-essential
       - dnsutils  # Equivalent to bind-tools
@@ -150,6 +147,3 @@ base:
       - wol
       - xdg-user-dirs
       - zip
-
-    pip_packages:
-      - pynvim

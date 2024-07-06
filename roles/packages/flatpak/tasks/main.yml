@@ -4,4 +4,4 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ flatpak[ansible_distribution]packages }}"
+    packages: "{{ flatpak[ansible_distribution]['packages'] }}"

@@ -4,4 +4,4 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ wm_sway[ansible_distribution]packages }}"
+    packages: "{{ wm_sway[ansible_distribution]['packages'] }}"

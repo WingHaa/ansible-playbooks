@@ -1,6 +1,0 @@
-kvm_guest:
-
-
-  packages:
-    - spice-vdagent
-    - spice

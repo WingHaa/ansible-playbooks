@@ -1,8 +1,9 @@
 wm_sway:
 
-  packages:
-    - sway
-    - swaybg
-    - swayidle
-    - swaylock
-    - waybar
+  Archlinux:
+    packages:
+      - sway
+      - swaybg
+      - swayidle
+      - swaylock
+      - waybar

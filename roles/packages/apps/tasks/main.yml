@@ -4,5 +4,5 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ apps[ansible_distribution]packages }}"
-    aur_packages: "{{ apps[ansible_distribution]aur_packages }}"
+    packages: "{{ apps[ansible_distribution]['packages'] }}"
+    aur_packages: "{{ apps[ansible_distribution]['aur_packages'] }}"

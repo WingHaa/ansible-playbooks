@@ -5,7 +5,7 @@
   - name: 'Install packages'
     package:
       name: "{{ packages }}"
-      state: latest
+      state: present
     when: packages is defined and packages
 
   - name: "Install AUR packages"
@@ -17,6 +17,8 @@
   - name: 'Install pip packages for root'
     pip:
       name: "{{ item }}"
+      virtualenv: /opt/virtual_envs/personal_env
+      virtualenv_command: "{{ ansible_python_interpreter }} -m venv"
     with_items: "{{ pip_packages }}"
     when: pip_packages is defined and pip_packages
 
@@ -36,5 +38,7 @@
   - name: 'Install pip packages for user'
     pip:
       name: "{{ item }}"
+      virtualenv: /opt/virtual_envs/personal_env
+      virtualenv_command: "{{ ansible_python_interpreter }} -m venv"
     with_items: "{{ pip_packages }}"
     when: pip_packages is defined and pip_packages

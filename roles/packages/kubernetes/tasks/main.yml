@@ -1,8 +1,0 @@
----
-
-- name: "Install kubernetes package group"
-  include_role:
-    name: common/install
-  vars:
-    packages: "{{ kubernetes[ansible_distribution]packages }}"
-    aur_packages: "{{ kubernetes.aur_packages }}"

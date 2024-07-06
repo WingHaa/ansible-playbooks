@@ -1,9 +1,0 @@
-wm_xmonad:
-
-  packages:
-    - haskell-hashtables
-    - trayer
-    - xmobar
-    - xmonad-contrib
-    - xmonad-utils
-    - xmonad

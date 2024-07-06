@@ -1,7 +1,0 @@
----
-
-- name: "Install kvm-guest package group"
-  include_role:
-    name: common/install
-  vars:
-    packages: "{{ kvm_guest[ansible_distribution]packages }}"

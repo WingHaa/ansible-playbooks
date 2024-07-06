@@ -1,10 +1,11 @@
 font:
 
-  packages:
-    - noto-fonts-emoji
-    - noto-fonts-extra
-    - noto-fonts
-    - pango
-    - ttf-hack
-    - ttf-jetbrains-mono
-    - ttf-liberation
+  Archlinux:
+    packages:
+      - noto-fonts-emoji
+      - noto-fonts-extra
+      - noto-fonts
+      - pango
+      - ttf-hack
+      - ttf-jetbrains-mono
+      - ttf-liberation
