@@ -2,7 +2,7 @@
 
 - name: "Install kubernetes package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ kubernetes.packages }}"
     aur_packages: "{{ kubernetes.aur_packages }}"

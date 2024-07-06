@@ -2,7 +2,7 @@
 
 - name: "Install zsh package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ zsh.packages }}"
 
@@ -10,4 +10,4 @@
   user:
     name: "{{ username }}"
     shell: /usr/bin/zsh
-  become: yes
+  become: true

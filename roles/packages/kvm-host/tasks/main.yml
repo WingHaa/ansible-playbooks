@@ -147,7 +147,7 @@
     with_items:
       - "lxml"
 
-  become: yes
+  become: true
 
 
 

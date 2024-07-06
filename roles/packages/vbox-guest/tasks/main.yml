@@ -2,7 +2,7 @@
 
 - name: "Install vbox-guest package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ vbox_guest.packages }}"
     service: "{{ vbox_guest.service }}"
@@ -15,4 +15,4 @@
   with_items:
     - vboxusers
     - vboxsf
-  become: yes
+  become: true

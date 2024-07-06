@@ -1,0 +1,19 @@
+docker:
+
+  Archlinux:
+    packages:
+      - docker
+      - docker-compose
+      - python
+      - python-pip
+      - python-docker
+      - python-yaml
+
+  Ubuntu:
+    packages:
+      - docker
+      - docker-compose-plugin
+      - python
+      - python-pip
+      - python-docker
+      - python-yaml

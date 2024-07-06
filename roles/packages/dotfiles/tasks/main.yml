@@ -11,12 +11,6 @@
       msg: "/home/{{ username }} does not exists"
     when: not user_home.stat.exists
 
-  - name: 'Install zsh'
-    package:
-      name: "zsh"
-      state: latest
-    become: yes
-
   - name: "Clone dotfiles git repository"
     git:
       repo: "https://{{ git_user|urlencode() }}:{{ git_password|urlencode() }}@{{ dotfiles_repo_url }}"
@@ -40,9 +34,3 @@
   - name: "Initialize and Update dotfiles submodules"
     command:
       cmd: git --git-dir=/home/{{ username }}/.dotfiles --work-tree=/home/{{ username }} submodule update --init
-
-  - name: "change user shell to zsh"
-    user:
-      name: "{{ username }}"
-      shell: /usr/bin/zsh
-    become: yes

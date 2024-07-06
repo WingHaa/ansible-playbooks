@@ -13,6 +13,7 @@ wm_base:
     - at
     - bc
     - broot
+    - btop
     - calcurse
     - chafa
     - cmatrix
@@ -33,7 +34,7 @@ wm_base:
     - gvfs
     - hexedit
     - highlight
-    - htop
+    - kitty
     - icoutils
     - iftop
     - imagemagick

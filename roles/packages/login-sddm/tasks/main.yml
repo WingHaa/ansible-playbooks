@@ -2,7 +2,7 @@
 
 - name: "Install login-sddm package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ login_sddm.packages }}"
 
@@ -10,7 +10,7 @@
   git:
     repo: 'https://github.com/niki-on-github/simple-login-sddm-theme'
     dest: /usr/share/sddm/themes/simple-login
-  become: yes
+  become: true
 
 - name: "Copy sddm config"
   copy:
@@ -19,10 +19,10 @@
     owner: root
     group: root
     mode: '0755'
-  become: yes
+  become: true
 
 - name: 'Enable sddm systemd service'
   systemd:
     name: 'sddm'
     enabled: 'yes'
-  become: yes
+  become: true

@@ -1,9 +1,0 @@
----
-
-- name: "Install printer package group"
-  include_role:
-    name: archlinux/install
-  vars:
-    packages: "{{ printer.packages }}"
-    service: "{{ printer.service }}"
-

@@ -1,19 +1,21 @@
 modern_unix:
 
+  Archlinux:
+    packages:
+      - bat
+      - duf
+      - fd
+      - fzf
+      - jq
+      - ripgrep
+      - zoxide
 
-  packages:
-    - bat
-    - choose
-    - curlie
-    - dog
-    - duf
-    - dust
-    - fd
-    - fzf
-    - git-delta
-    - jq
-    - lsd
-    - procs
-    - ripgrep
-    - sd
-    - zoxide
+  Ubuntu:
+    packages:
+      - batcat
+      - duf
+      - fd
+      - fzf
+      - jq
+      - ripgrep
+      - zoxide

@@ -2,7 +2,7 @@
 
 - name: "Install vbox-host package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ vbox_host.packages }}"
     aur_packages: "{{ vbox_host.aur_packages }}"
@@ -15,4 +15,4 @@
   with_items:
     - vboxusers
     - vboxsf
-  become: yes
+  become: true

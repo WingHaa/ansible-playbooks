@@ -2,21 +2,13 @@
 
 - name: "Install de-kde package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ de_kde.packages }}"
 
 
 - block:
   # root
-
-  - name: "Set keymap to {{ keymap }}"
-    shell:
-      cmd: "localectl set-keymap {{ keymap }}"
-
-  - name: "Set x11 keymap to {{ x11_keymap }}"
-    shell:
-      cmd: "localectl set-x11-keymap {{ x11_keymap }}"
 
   - name: "Set locale to {{ lang }}"
     shell:
@@ -26,4 +18,4 @@
     shell:
       cmd: "baloctl disable"
 
-  become: yes
+  become: true

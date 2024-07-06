@@ -31,4 +31,4 @@
     with_items:
       - "disk-status.j2"
 
-  become: yes
+  become: true

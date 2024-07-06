@@ -2,7 +2,7 @@
 
 - name: "Install lxd package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ lxd.packages }}"
     services: "{{ lxd.services }}"
@@ -13,4 +13,4 @@
     name: '{{ username }}'
     groups: 'lxd'
     append: 'yes'
-  become: yes
+  become: true

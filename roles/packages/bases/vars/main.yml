@@ -1,9 +1,4 @@
 base:
-  Ubuntu:
-    services:
-    packages:
-    pip_packages:
-
   Archlinux:
     services:
       - haveged
@@ -25,7 +20,6 @@ base:
       - devtools
       - diff-so-fancy
       - dosfstools
-      - git-lfs
       - git
       - gnu-netcat
       - gnupg
@@ -37,7 +31,6 @@ base:
       - lm_sensors
       - man-db
       - man-pages
-      - mlocate
       - mkcert
       - neovim
       - net-tools
@@ -62,7 +55,6 @@ base:
       - reflector
       - rng-tools
       - rsync
-      - ruby
       - rustup
       - sshfs
       - sudo
@@ -70,6 +62,85 @@ base:
       - ufw
       - unzip
       - usb_modeswitch
+      - usbutils
+      - valgrind
+      - vde2
+      - wget
+      - whois
+      - wireguard-tools
+      - wol
+      - xdg-user-dirs
+      - zip
+
+    pip_packages:
+      - pynvim
+
+  #end Archlinux
+
+  Ubuntu:
+
+    services:
+      - haveged
+      - NetworkManager
+      - rng-tools  # Ubuntu alternative to rngd
+
+    packages:
+      - arch-audit
+      - bash-completion
+      - build-essential
+      - dnsutils  # Equivalent to bind-tools
+      - bridge-utils
+      - cargo  # Rust package manager (equivalent to cargo-outdated)
+      - cifs-utils
+      - clang
+      - llvm-runtime  # Equivalent to compiler-rt
+      - cryfs
+      - curl
+      - devscripts  # Equivalent to devtools
+      - diff-so-fancy
+      - dosfstools
+      - git
+      - netcat  # Equivalent to gnu-netcat
+      - gnupg
+      - golang-go  # Equivalent to go
+      - gzip
+      - haveged
+      - hdparm
+      - i2c-tools
+      - lm-sensors
+      - man-db
+      - manpages
+      - mkcert
+      - neovim
+      - net-tools
+      - network-manager
+      - nfs-common  # Equivalent to nfs-utils
+      - nodejs
+      - npm
+      - ntfs-3g
+      - nvme-cli
+      - oath-toolkit
+      - openssh-server  # Equivalent to openssh
+      - openvpn
+      - p7zip-full  # Equivalent to p7zip
+      - apt-file  # Equivalent to pkgfile
+      - powertop
+      - pv
+      - pyenv
+      - python3-pip
+      - python3-venv
+      - python3
+      - rclone
+      - apt-mirror  # Alternative to reflector
+      - rng-tools  # Ubuntu alternative to rngd
+      - rsync
+      - rustup
+      - sshfs
+      - sudo
+      - tar
+      - ufw
+      - unzip
+      - usb-modeswitch
       - usbutils
       - valgrind
       - vde2

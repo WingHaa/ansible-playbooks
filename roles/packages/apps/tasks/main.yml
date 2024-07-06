@@ -2,7 +2,7 @@
 
 - name: "Install apps package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ apps[ansible_distribution]packages }}"
     aur_packages: "{{ apps[ansible_distribution]aur_packages }}"

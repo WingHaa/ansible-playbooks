@@ -2,7 +2,7 @@
 
 - name: "Install login-greetd package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     aur_packages:
       - greetd
@@ -21,13 +21,13 @@
       regexp: '^command = .*$'
       replace: 'command = "tuigreet --cmd startx"'
 
-  become: yes
+  become: true
 
 
 # After config.toml changes:
 - name: "Install login-greetd package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     aur_packages:
       - tuigreet
@@ -36,4 +36,4 @@
   systemd:
     name: 'greetd'
     enabled: 'yes'
-  become: yes
+  become: true

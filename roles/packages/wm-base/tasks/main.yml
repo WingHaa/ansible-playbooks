@@ -6,11 +6,11 @@
     state: absent
   with_items:
     - "docopt"
-  become: yes
+  become: true
 
 - name: "Install wm-base package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ wm_base.packages }}"
     aur_packages: "{{ wm_base.aur_packages }}"

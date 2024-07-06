@@ -2,6 +2,6 @@
 
 - name: "Install breeze package group"
   include_role:
-    name: archlinux/install
+    name: common/install
   vars:
     packages: "{{ breeze.packages }}"

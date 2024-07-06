@@ -18,7 +18,7 @@
 
 - name: Install applications
   hosts: all
-  become: yes
+  become: true
   roles:
     - role: precondition
     - role: packages/apps
