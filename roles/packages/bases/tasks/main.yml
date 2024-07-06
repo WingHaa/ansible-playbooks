@@ -4,9 +4,9 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ base.packages }}"
-    pip_packages: "{{ base.pip_packages }}"
-    services: "{{ base.services }}"
+    packages: "{{ base[ansible_distribution]packages }}"
+    pip_packages: "{{ base[ansible_distribution]pip_packages }}"
+    services: "{{ base[ansible_distribution]services }}"
 
 
 - block:

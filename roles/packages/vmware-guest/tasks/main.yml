@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ vmware_guest.packages }}"
+    packages: "{{ vmware_guest[ansible_distribution]packages }}"
     service: "{{ vmware_guest.service }}"
 
   become: true

@@ -4,5 +4,5 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ wm_wayland.packages }}"
+    packages: "{{ wm_wayland[ansible_distribution]packages }}"
     aur_packages: "{{ wm_wayland.aur_packages }}"

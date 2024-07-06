@@ -4,4 +4,4 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ font.packages }}"
+    packages: "{{ font[ansible_distribution]packages }}"

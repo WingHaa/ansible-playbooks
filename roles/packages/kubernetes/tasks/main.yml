@@ -4,5 +4,5 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ kubernetes.packages }}"
+    packages: "{{ kubernetes[ansible_distribution]packages }}"
     aur_packages: "{{ kubernetes.aur_packages }}"

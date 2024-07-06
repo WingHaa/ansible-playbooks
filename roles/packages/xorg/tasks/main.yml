@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ xorg.packages }}"
+    packages: "{{ xorg[ansible_distribution]packages }}"
 
 - name: "Set locale to {{ lang }}"
   shell:

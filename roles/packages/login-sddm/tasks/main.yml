@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ login_sddm.packages }}"
+    packages: "{{ login_sddm[ansible_distribution]packages }}"
 
 - name: "Install theme"
   git:

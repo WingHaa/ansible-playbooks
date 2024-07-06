@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ wm_xmonad.packages }}"
+    packages: "{{ wm_xmonad[ansible_distribution]packages }}"
 
 - name: "Setup xmonad recompile hook"
   copy:

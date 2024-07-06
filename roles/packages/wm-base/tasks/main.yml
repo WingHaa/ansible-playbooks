@@ -12,7 +12,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ wm_base.packages }}"
+    packages: "{{ wm_base[ansible_distribution]packages }}"
     aur_packages: "{{ wm_base.aur_packages }}"
-    pip_packages: "{{ wm_base.pip_packages }}"
-    services: "{{ wm_base.services }}"
+    pip_packages: "{{ wm_base[ansible_distribution]pip_packages }}"
+    services: "{{ wm_base[ansible_distribution]services }}"
