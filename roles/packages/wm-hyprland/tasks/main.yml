@@ -5,4 +5,4 @@
     name: common/install
   vars:
     packages: "{{ wm_hyprland[ansible_distribution]['packages'] }}"
-    aur_packages: "{{ wm_hyprland.aur_packages }}"
+    conflicts: "{{ wm_hyprland[ansible_distribution]['conflicts'] }}"

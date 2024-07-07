@@ -1,1 +1,2 @@
 username: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+remote_cpu_cores: "{{ ansible_processor_cores | default(ansible_processor_vcpus) | default(1) }}"

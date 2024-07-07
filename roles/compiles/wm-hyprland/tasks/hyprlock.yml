@@ -1,0 +1,31 @@
+- name: Clone hyprlock repository
+  ansible.builtin.git:
+    repo: https://github.com/hyprwm/hyprlock.git
+    dest: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlock"
+    version: "{{ hyprlock }}"
+    recursive: yes
+  register: git_clone_result
+
+- name: Configure with CMake
+  ansible.builtin.command:
+    cmd: cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -S . -B ./build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlock"
+  register: configure_result
+  failed_when: configure_result.rc != 0
+  when: not git_clone_result.failed
+
+- name: Build hyprlock
+  ansible.builtin.command:
+    cmd: cmake --build ./build --config Release --target hyprlock -j"{{ remote_cpu_cores }}"
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlock"
+  register: build_result
+  failed_when: build_result.rc != 0
+  when: not git_clone_result.failed
+
+- name: Install hyprlock
+  ansible.builtin.command:
+    cmd: cmake --install ./build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlock"
+  become: true
+  register: install_result
+  failed_when: install_result.rc != 0

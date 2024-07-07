@@ -1,0 +1,31 @@
+- name: Clone hyprlang repository
+  ansible.builtin.git:
+    repo: https://github.com/hyprwm/hyprlang.git
+    version: "{{ hyprlang }}"
+    dest: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlang"
+    recursive: yes
+  register: git_clone_result
+
+- name: Configure with CMake
+  ansible.builtin.command:
+    cmd: cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -S . -B ./build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlang"
+  register: configure_result
+  failed_when: configure_result.rc != 0
+  when: not git_clone_result.failed
+
+- name: Build hyprlang
+  ansible.builtin.command:
+    cmd: cmake --build ./build --config Release --target hyprlang -j$(nproc 2>/dev/null || getconf _NPROCESSORS_CONF)
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlang"
+  register: build_result
+  failed_when: build_result.rc != 0
+  when: not git_clone_result.failed
+
+- name: Install hyprlang
+  ansible.builtin.command:
+    cmd: cmake --install ./build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprlang"
+  become: true
+  register: install_result
+  failed_when: install_result.rc != 0

@@ -1,0 +1,45 @@
+- name: Clone or update swww repository
+  ansible.builtin.git:
+    repo: https://github.com/Horus645/swww.git
+    dest: "{{ ansible_env.HOME }}/apps/HyprSources/swww"
+    version: "{{ swww }}"
+    recursive: yes
+  register: git_clone_result
+
+- name: Build swww
+  ansible.builtin.command: cargo build --release
+  args:
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/swww"
+
+- name: Remove existing swww binaries if present
+  ansible.builtin.file:
+    path: /usr/bin/{{ item }}
+    state: absent
+  with_items:
+    - swww
+    - swww-daemon
+  become: true
+
+- name: Copy swww binaries to /usr/bin/
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/apps/HyprSources/swww/target/release/{{ item }}"
+    dest: /usr/bin/{{ item }}
+    mode: '0755'
+  with_items:
+    - swww
+    - swww-daemon
+  become: true
+
+- name: Copy bash completions
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/apps/HyprSources/swww/completions/swww.bash"
+    dest: /usr/share/bash-completion/completions/swww
+    mode: '0644'
+  become: true
+
+- name: Copy zsh completions
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/apps/HyprSources/swww/completions/_swww"
+    dest: /usr/share/zsh/site-functions/_swww
+    mode: '0644'
+  become: true

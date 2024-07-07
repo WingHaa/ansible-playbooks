@@ -11,3 +11,15 @@ thunar:
       - thunar
       - tumbler
       - xarchiver
+
+  Ubuntu:
+    packages:
+      - catfish
+      - gvfs
+      - raw-thumbnailer
+      - thunar-archive-plugin
+      - thunar-media-tags-plugin
+      - thunar-volman
+      - thunar
+      - tumbler
+      - xarchiver

@@ -15,8 +15,8 @@
     package:
       name:
         - openssl
-        - python-pip
-        - python-setuptools
+        # - python-pip
+        # - python-setuptools
         - rustup
       state: present
 

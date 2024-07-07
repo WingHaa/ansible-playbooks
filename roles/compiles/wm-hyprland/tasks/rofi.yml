@@ -1,0 +1,25 @@
+- name: Clone rofi repository
+  ansible.builtin.git:
+    repo: https://github.com/lbonn/rofi.git
+    dest: "{{ ansible_env.HOME }}/apps/HyprSources/rofi"
+  register: git_clone_result
+
+- name: Configure with meson
+  ansible.builtin.command:
+    cmd: meson setup build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/wayland-protocols"
+
+- name: Build with ninja
+  ansible.builtin.command:
+    cmd: ninja -C build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/wayland-protocols"
+  register: build_result
+  failed_when: build_result.rc != 0
+
+- name: Install wayland-protocols
+  ansible.builtin.command:
+    cmd: ninja -C build install
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/wayland-protocols"
+  become: true
+  register: install_result
+  failed_when: install_result.rc != 0

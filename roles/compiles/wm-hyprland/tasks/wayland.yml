@@ -1,0 +1,31 @@
+- name: Clone wayland repository
+  ansible.builtin.git:
+    repo: https://gitlab.freedesktop.org/wayland/wayland
+    dest: "{{ ansible_env.HOME }}/apps/HyprSources/wayland"
+    version: "{{ wayland }}"
+  register: git_clone_result
+
+- name: Create build directory if not exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/apps/HyprSources/wayland/build"
+    state: directory
+
+- name: Configure with meson
+  ansible.builtin.command:
+    cmd: meson setup --prefix=/usr --buildtype=release -Ddocumentation=false
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/wayland/build"
+
+- name: Build with ninja
+  ansible.builtin.command:
+    cmd: ninja
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/wayland/build"
+  register: build_result
+  failed_when: build_result.rc != 0
+
+- name: Install wayland
+  ansible.builtin.command:
+    cmd: ninja install
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/wayland/build"
+  become: true
+  register: install_result
+  failed_when: install_result.rc != 0

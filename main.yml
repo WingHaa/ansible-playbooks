@@ -37,6 +37,10 @@
     - role: packages/modern-unix
     - role: packages/wm-base
     - role: packages/wm-hyprland
-    - role: packages/wm-xorg
     - role: packages/xorg
     - role: packages/zsh
+
+- name: Compile applications
+  hosts: localhost
+  roles:
+    - role: compiles/wm-hyprland

@@ -2,19 +2,19 @@
 
 - block:
   # root install
-  - name: 'Install packages'
+  - name: Install packages
     package:
       name: "{{ packages }}"
-      state: present
+      state: latest
     when: packages is defined and packages
 
-  - name: "Install AUR packages"
+  - name: Install AUR packages
     kewlfft.aur.aur:
       name: "{{ aur_packages }}"
     become_user: "{{ username }}"
     when: aur_packages is defined and aur_packages
 
-  - name: 'Install pip packages for root'
+  - name: Install pip packages for root
     pip:
       name: "{{ item }}"
       virtualenv: /opt/virtual_envs/personal_env
@@ -22,7 +22,7 @@
     with_items: "{{ pip_packages }}"
     when: pip_packages is defined and pip_packages
 
-  - name: 'Enable systemd services'
+  - name: Enable systemd services
     systemd:
       name: '{{ item }}'
       state: 'started'
@@ -30,12 +30,18 @@
     with_items: "{{ services }}"
     when: services is defined and services
 
+  - name: Remove conflicting packages
+    package:
+      name: "{{ conflicts }}"
+      state: absent
+    when: conflicts is defined and conflicts
+
   become: true
 
 
 - block:
   # user install
-  - name: 'Install pip packages for user'
+  - name: Install pip packages for user
     pip:
       name: "{{ item }}"
       virtualenv: /opt/virtual_envs/personal_env
