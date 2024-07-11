@@ -1,5 +1,5 @@
 - name: Clone hyprcursor repository
-  ansible.builtin.git:
+  git:
     repo: https://github.com/hyprwm/hyprcursor.git
     dest: "{{ ansible_env.HOME }}/apps/HyprSources/hyprcursor"
     version: "{{ hyprcursor }}"
@@ -7,21 +7,21 @@
   register: git_clone_result
 
 - name: Configure with CMake
-  ansible.builtin.command:
+  command:
     cmd: cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprcursor"
   register: configure_result
   failed_when: configure_result.rc != 0
 
 - name: Build with CMake
-  ansible.builtin.command:
+  command:
     cmd: cmake --build ./build --config Release --target all -j"{{ remote_cpu_cores }}"
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprcursor"
   register: build_result
   failed_when: build_result.rc != 0
 
 - name: Install hyprcursor
-  ansible.builtin.command:
+  command:
     cmd: cmake --install ./build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprcursor"
   become: true

@@ -1,29 +1,29 @@
 - name: Clone hyprland-protocols repository
-  ansible.builtin.git:
+  git:
     repo: https://github.com/hyprwm/hyprland-protocols
     dest: "{{ ansible_env.HOME }}/apps/HyprSources/hyprland-protocols"
     version: "{{ hyprland_protocols }}"
   register: git_clone_result
 
 - name: Create build directory if not exists
-  ansible.builtin.file:
+  file:
     path: "{{ ansible_env.HOME }}/apps/HyprSources/hyprland-protocols/build"
     state: directory
 
 - name: Configure with meson
-  ansible.builtin.command:
+  command:
     cmd: meson setup --prefix=/usr --buildtype=release
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprland-protocols/build"
 
 - name: Build with ninja
-  ansible.builtin.command:
+  command:
     cmd: ninja
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprland-protocols/build"
   register: build_result
   failed_when: build_result.rc != 0
 
 - name: Install hyprland-protocols
-  ansible.builtin.command:
+  command:
     cmd: ninja install
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprland-protocols/build"
   become: true

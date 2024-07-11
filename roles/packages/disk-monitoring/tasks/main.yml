@@ -10,7 +10,7 @@
       state: present
 
   - name: 'Enable SMART systemd service'
-    ansible.builtin.systemd:
+    systemd:
       name: 'smartd'
       state: 'started'
       enabled: 'yes'

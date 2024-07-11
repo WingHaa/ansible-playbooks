@@ -1,0 +1,53 @@
+- name: "Install waybar dependencies"
+  include_role:
+    name: common/install
+  vars:
+    packages:
+      - cmake
+      - meson
+      - scdoc
+      - upower 
+      # - wayland-protocols # manually building this due to hyprland v0.41.2 requirement
+      - clang-tidy 
+      - gobject-introspection 
+      - libdbusmenu-gtk3-dev 
+      - libevdev-dev 
+      - libfmt-dev 
+      - libgirepository1.0-dev 
+      - libgtk-3-dev 
+      - libgtkmm-3.0-dev 
+      - libinput-dev 
+      - libjsoncpp-dev 
+      - libmpdclient-dev 
+      - libnl-3-dev 
+      - libnl-genl-3-dev 
+      - libpulse-dev 
+      - libsigc++-2.0-dev 
+      - libspdlog-dev 
+      - libwayland-dev 
+      - libxkbregistry-dev
+
+- name: Clone Waybar repository
+  git:
+    repo: https://github.com/Alexays/Waybar
+    dest: "{{ ansible_env.HOME }}/apps/HyprSources/Waybar"
+
+- name: Configure with meson
+  command:
+    cmd: meson build
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/Waybar"
+
+- name: Build with ninja
+  command:
+    cmd: ninja
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/Waybar"
+  register: build_result
+  failed_when: build_result.rc != 0
+
+- name: Install Waybar
+  command:
+    cmd: ninja -C build install
+    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/Waybar"
+  become: true
+  register: install_result
+  failed_when: install_result.rc != 0

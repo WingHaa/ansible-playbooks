@@ -1,5 +1,5 @@
 - name: Clone hyprwayland-scanner repository
-  ansible.builtin.git:
+  git:
     repo: https://github.com/hyprwm/hyprwayland-scanner.git
     dest: "{{ ansible_env.HOME }}/apps/HyprSources/hyprwayland-scanner"
     version: "{{ hyprscan }}"
@@ -7,12 +7,12 @@
   register: git_clone_result
 
 - name: Check if cloning was successful
-  ansible.builtin.fail:
+  fail:
     msg: "Download failed for hyprwayland-scanner. Please check log."
   when: git_clone_result.failed
 
 - name: Configure with CMake
-  ansible.builtin.command:
+  command:
     cmd: cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprwayland-scanner"
   register: configure_result
@@ -20,7 +20,7 @@
   when: not git_clone_result.failed
 
 - name: Build hyprwayland-scanner
-  ansible.builtin.command:
+  command:
     cmd: cmake --build build -j"{{ remote_cpu_cores }}"
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprwayland-scanner"
   register: build_result
@@ -28,7 +28,7 @@
   when: not git_clone_result.failed
 
 - name: Install hyprwayland-scanner
-  ansible.builtin.command:
+  command:
     cmd: cmake --install build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hyprwayland-scanner"
   become: true

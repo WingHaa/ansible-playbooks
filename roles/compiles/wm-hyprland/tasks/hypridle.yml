@@ -1,5 +1,5 @@
 - name: Clone hypridle repository
-  ansible.builtin.git:
+  git:
     repo: https://github.com/hyprwm/hypridle.git
     dest: "{{ ansible_env.HOME }}/apps/HyprSources/hypridle"
     version: "{{ hypridle }}"
@@ -7,7 +7,7 @@
   register: git_clone_result
 
 - name: Configure with CMake
-  ansible.builtin.command:
+  command:
     cmd: cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -S . -B ./build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hypridle"
   register: configure_result
@@ -15,7 +15,7 @@
   when: not git_clone_result.failed
 
 - name: Build hypridle
-  ansible.builtin.command:
+  command:
     cmd: cmake --build ./build --config Release --target hypridle -j"{{ remote_cpu_cores }}"
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hypridle"
   register: build_result
@@ -23,7 +23,7 @@
   when: not git_clone_result.failed
 
 - name: Install hypridle
-  ansible.builtin.command:
+  command:
     cmd: cmake --install ./build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/hypridle"
   become: true
