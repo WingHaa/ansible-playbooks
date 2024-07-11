@@ -37,13 +37,6 @@
     cmd: meson build
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/Waybar"
 
-- name: Build with ninja
-  command:
-    cmd: ninja
-    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/Waybar"
-  register: build_result
-  failed_when: build_result.rc != 0
-
 - name: Install Waybar
   command:
     cmd: ninja -C build install
