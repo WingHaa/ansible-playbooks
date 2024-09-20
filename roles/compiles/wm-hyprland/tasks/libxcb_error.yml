@@ -25,7 +25,14 @@
     chdir: "{{ ansible_env.HOME }}/apps/HyprSources/libxcb-errors"
 
 - name: Install libxcb-errors
-  shell:
-    cmd: make install
-    chdir: "{{ ansible_env.HOME }}/apps/HyprSources/libxcb-errors"
+  block:
+    - name: Run make install
+      shell:
+        cmd: make install
+        chdir: "{{ ansible_env.HOME }}/apps/HyprSources/libxcb-errors"
+
+    - name: Run ldconfig
+      shell:
+        cmd: ldconfig
+
   become: true
