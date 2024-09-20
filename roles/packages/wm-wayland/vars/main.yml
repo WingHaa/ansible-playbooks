@@ -9,7 +9,7 @@ wm_wayland:
       - wtype
       - bemenu-wayland
       - ttf-roboto-mono
+      - rofi
 
     aur_packages:
       - clipman
-      - tofi

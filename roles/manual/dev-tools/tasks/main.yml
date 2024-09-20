@@ -1,0 +1,15 @@
+- name: Install mise
+  command:
+    cmd: cargo install mise
+
+- name: Install neovim
+  command:
+    cmd: mise use -g neovim@nightly -y
+
+- name: Install node
+  command:
+    cmd: mise use -g node@lts
+
+- name: Install golang
+  command:
+    cmd: mise use -g go

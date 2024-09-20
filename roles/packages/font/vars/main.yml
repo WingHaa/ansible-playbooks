@@ -6,6 +6,7 @@ font:
       - noto-fonts-extra
       - noto-fonts
       - pango
-      - ttf-hack
-      - ttf-jetbrains-mono
       - ttf-liberation
+      - extra/ttf-jetbrains-mono-nerd 
+      - extra/ttf-meslo-nerd 
+      - extra/ttf-hack-nerd

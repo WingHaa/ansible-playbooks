@@ -21,17 +21,15 @@
       changed_when: False
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
-- name: Install applications
+- name: Install packages
   hosts: localhost
   become: true
   roles:
     - role: precondition
     - role: packages/apps
     - role: packages/bases
-    - role: packages/breeze
     - role: packages/disk-monitoring
     - role: packages/docker
-    - role: packages/flatpak
     - role: packages/font
     - role: packages/login-sddm
     - role: packages/modern-unix
@@ -40,7 +38,11 @@
     - role: packages/xorg
     - role: packages/zsh
 
-- name: Compile applications
+- name: Install/Compile applications
   hosts: localhost
   roles:
-    - role: compiles/wm-hyprland
+    - role: manual/ssh
+    - role: manual/git
+    - role: manual/dotfiles
+    - role: manual/dev-tools
+    - role: manual/wm-hyprland

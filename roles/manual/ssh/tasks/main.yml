@@ -1,0 +1,30 @@
+- name: Install ssh key
+  copy:
+    src: "{{ item }}"
+    dest: "{{ dest }}"
+    mode: 0600
+  with_items:
+    - "{{ source }}{{ private_key_file }}"
+    - "{{ source }}{{ work_key_file }}"
+    - "{{ source }}config"
+  tags:
+    - ssh
+
+- name: Install ssh key public
+  copy:
+    src: "{{ item }}.pub"
+    dest: "{{ dest }}"
+    mode: 0644
+  with_items:
+    - "{{ source }}{{ private_key_file }}"
+    - "{{ source }}{{ work_key_file }}"
+  tags:
+    - ssh
+
+- name: Set authorized key took from file
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('file', item) }}"
+  with_fileglob:
+  - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"

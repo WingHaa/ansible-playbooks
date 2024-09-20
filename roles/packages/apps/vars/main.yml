@@ -1,20 +1,23 @@
 apps:
-  Ubuntu:
-    packages:
-      - firefox
-      - flameshot
-      - gimp
-      - mpv
-      - obs-studio
-      - thunderbird
-      - brave
-      - visual-studio-code
-
   Archlinux:
     packages:
       - firefox
+      - vivaldi
+      - flameshot
+      - gimp
+      - mpv
+      - lazygit
+      - obs-studio
+      - thunderbird
+      - stow
+
+  Ubuntu:
+    packages:
+      - firefox
+      - vivaldi
       - flameshot
       - gimp
       - mpv
       - obs-studio
       - thunderbird
+      - stow

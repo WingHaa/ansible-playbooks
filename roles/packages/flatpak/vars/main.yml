@@ -1,6 +1,0 @@
-flatpak:
-
-  Archlinux:
-    packages:
-      - flatpak
-      - flatpak-builder

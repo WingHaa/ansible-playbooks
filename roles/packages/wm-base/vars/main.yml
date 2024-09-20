@@ -39,7 +39,6 @@ wm_base:
       - mpv
       - ncdu
       - ncmpcpp
-      - neovim
       - network-manager-applet
       - networkmanager-openvpn
       - newsboat

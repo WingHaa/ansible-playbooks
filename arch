@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+full_setup() {
+    echo "Starting full setup..."
+sudo pacman -Syu ansible --noconfirm --needed
+ansible-galaxy install -r requirements.yml
+ansible-playbook -i ./inventory/local.ini main.yml --ask-become-pass --ask-vault-pass
+    echo "Full setup completed."
+}
+
+partial_setup() {
+    echo "Starting partial setup..."
+ansible-playbook -i ./inventory/local.ini main.yml --ask-become-pass --ask-vault-pass
+    echo "User setup completed."
+}
+
+# Main script logic
+echo "Choose setup type:"
+echo "1. Full Setup"
+echo "2. Partial Setup"
+read -rp "Enter your choice (1 or 2): " choice
+
+case $choice in
+    1)
+        full_setup
+        ;;
+    2)
+        partial_setup
+        ;;
+    *)
+        full_setup
+        ;;
+esac

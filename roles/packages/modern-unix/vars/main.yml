@@ -6,6 +6,7 @@ modern_unix:
       - duf
       - fd
       - fzf
+      - tldr
       - jq
       - ripgrep
       - zoxide
@@ -16,6 +17,7 @@ modern_unix:
       - duf
       - fd
       - fzf
+      - tldr
       - jq
       - ripgrep
       - zoxide

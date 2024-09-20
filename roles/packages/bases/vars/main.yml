@@ -11,6 +11,7 @@ base:
       - base-devel
       - bind-tools
       - bridge-utils
+      - cargo
       - cargo-outdated
       - cifs-utils
       - clang
@@ -33,11 +34,9 @@ base:
       - man-pages
       - mkcert
       - mlocate
-      - neovim
       - net-tools
       - networkmanager
       - nfs-utils
-      - nodejs
       - npm
       - ntfs-3g
       - nvme-cli
@@ -60,6 +59,7 @@ base:
       - sshfs
       - sudo
       - tar
+      - tree
       - ufw
       - unzip
       - usb_modeswitch
@@ -87,7 +87,7 @@ base:
       - build-essential
       - dnsutils  # Equivalent to bind-tools
       - bridge-utils
-      - cargo  # Rust package manager (equivalent to cargo-outdated)
+      - cargo  # Rust package manager
       - cifs-utils
       - clang
       - llvm-runtime  # Equivalent to compiler-rt
@@ -99,7 +99,6 @@ base:
       - git
       - netcat  # Equivalent to gnu-netcat
       - gnupg
-      - golang-go  # Equivalent to go
       - gzip
       - haveged
       - hdparm
@@ -108,7 +107,6 @@ base:
       - man-db
       - manpages
       - mkcert
-      - neovim
       - net-tools
       - network-manager
       - nfs-common  # Equivalent to nfs-utils

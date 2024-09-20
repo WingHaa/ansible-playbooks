@@ -1,0 +1,10 @@
+- name: Install git configs
+  copy:
+    src: "{{ item }}"
+    dest: "{{ dest }}"
+    mode: 0644
+  with_items:
+    - "{{ source }}.gitconfig"
+    - "{{ source }}.work.gitconfig"
+  tags:
+    - git
