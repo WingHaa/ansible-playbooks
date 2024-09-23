@@ -7,9 +7,12 @@
     packages: "{{ login_sddm[ansible_distribution]['packages'] }}"
 
 - name: "Install theme"
-  git:
-    repo: 'https://github.com/niki-on-github/simple-login-sddm-theme'
-    dest: /usr/share/sddm/themes/simple-login
+  copy:
+    src: "{{ role_path }}/files/themes/sugar-candy"
+    dest: /usr/share/sddm/themes/sugar-candy
+    owner: root
+    group: root
+    mode: '0755'
   become: true
 
 - name: "Copy sddm config"

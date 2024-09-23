@@ -11,8 +11,6 @@ base:
       - base-devel
       - bind-tools
       - bridge-utils
-      - cargo
-      - cargo-outdated
       - cifs-utils
       - clang
       - compiler-rt
@@ -87,7 +85,6 @@ base:
       - build-essential
       - dnsutils  # Equivalent to bind-tools
       - bridge-utils
-      - cargo  # Rust package manager
       - cifs-utils
       - clang
       - llvm-runtime  # Equivalent to compiler-rt

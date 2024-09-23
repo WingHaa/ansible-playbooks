@@ -1,0 +1,3 @@
+- name: Install wallust
+  command:
+    cmd: cargo install wallust

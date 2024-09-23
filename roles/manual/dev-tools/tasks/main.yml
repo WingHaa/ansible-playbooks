@@ -4,7 +4,7 @@
 
 - name: Install neovim
   command:
-    cmd: mise use -g neovim@nightly -y
+    cmd: mise use -gy neovim@nightly
 
 - name: Install node
   command:

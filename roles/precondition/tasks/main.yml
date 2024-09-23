@@ -18,6 +18,8 @@
         # - python-pip
         # - python-setuptools
         - rustup
+        - cargo
+        - cargo-outdated
       state: present
 
   - name: 'rustup install stable for {{ username }} user'
