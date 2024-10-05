@@ -43,6 +43,7 @@ wm_base:
       - networkmanager-openvpn
       - newsboat
       - nmap
+      - nwg-look
       - pamixer
       - pass
       - pavucontrol
@@ -54,8 +55,10 @@ wm_base:
       - pulsemixer
       - python-pip
       - python
-      - qt5
+      - qt5-wayland
       - qt5ct
+      - qt6-wayland
+      - qt6ct
       - sipcalc
       - shellcheck
       - smbnetfs

@@ -28,10 +28,12 @@
     - role: precondition
     - role: packages/apps
     - role: packages/bases
+    - role: packages/breeze
     - role: packages/disk-monitoring
     - role: packages/docker
     - role: packages/font
     - role: packages/login-sddm
+    - role: packages/thunar
     - role: packages/modern-unix
     - role: packages/wm-base
     - role: packages/wm-hyprland
