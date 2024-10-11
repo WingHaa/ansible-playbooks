@@ -37,7 +37,7 @@
     - role: packages/modern-unix
     - role: packages/wm-base
     - role: packages/wm-hyprland
-    - role: packages/xorg
+    # - role: packages/xorg
     - role: packages/zsh
 
 - name: Install/Compile applications
