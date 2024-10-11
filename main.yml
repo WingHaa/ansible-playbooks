@@ -46,6 +46,6 @@
     - role: manual/ssh
     - role: manual/git
     - role: manual/dotfiles
-    - role: manual/dev-tools
     - role: manual/utils
-    - role: manual/wm-hyprland
+    # - role: manual/wm-hyprland
+    - role: manual/dev-tools

@@ -1,15 +1,21 @@
 apps:
   Archlinux:
     packages:
+      - fcitx5 
+      - fcitx5-bamboo 
+      - fcitx5-configtool
+      - fcitx5-gtk
+      - fcitx5-mozc
+      - fcitx5-qt 
       - firefox
-      - vivaldi
       - flameshot
       - gimp
-      - mpv
       - lazygit
+      - mpv
       - obs-studio
-      - thunderbird
       - stow
+      - thunderbird
+      - vivaldi
 
   Ubuntu:
     packages:

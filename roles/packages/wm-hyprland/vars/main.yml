@@ -2,15 +2,20 @@ wm_hyprland:
 
   Archlinux:
     packages:
-      - rofi
-      - waybar
+      - hyprcursor
       - hypridle
       - hyprland
       - hyprlock
-      - xdg-desktop-portal-hyprland
       - polkit-kde-agent
+      - qt5-svg 
       - qt5-wayland 
+      - qt5‑graphicaleffects 
+      - qt5‑quickcontrols2
       - qt6-wayland 
+      - rofi-wayland
+      - swaync
+      - waybar
+      - xdg-desktop-portal-hyprland
 
   Ubuntu:
     services:

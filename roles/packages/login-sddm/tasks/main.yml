@@ -8,8 +8,8 @@
 
 - name: "Install theme"
   copy:
-    src: "{{ role_path }}/files/themes/sugar-candy"
-    dest: /usr/share/sddm/themes/sugar-candy
+    src: "{{ role_path }}/files/themes/eucalyptus-drop"
+    dest: /usr/share/sddm/themes
     owner: root
     group: root
     mode: '0755'

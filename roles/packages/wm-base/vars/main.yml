@@ -20,18 +20,19 @@ wm_base:
       - fzy
       - glances
       - grc
+      - grim
       - gsettings-desktop-schemas
       - gtop
-      - gvfs-smb
       - gvfs
+      - gvfs-smb
       - hexedit
       - highlight
-      - kitty
       - icoutils
       - iftop
       - imagemagick
       - inotify-tools
       - iotop
+      - kitty
       - libnotify
       - libqalculate
       - mpc
@@ -53,14 +54,15 @@ wm_base:
       - pipewire-pulse
       - playerctl
       - pulsemixer
-      - python-pip
       - python
+      - python-pip
       - qt5-wayland
       - qt5ct
       - qt6-wayland
       - qt6ct
-      - sipcalc
       - shellcheck
+      - sipcalc
+      - slurp
       - smbnetfs
       - sshfs
       - syncthing
@@ -74,16 +76,16 @@ wm_base:
       - vbindiff
       - vulscan
       - w3m
+      - wireplumber
       - wmctrl
       - wmname
-      - wireplumber
       - xcape
       - xdg-utils
       - yarn
-      - yt-dlp
       - yq
-      - zathura-pdf-mupdf
+      - yt-dlp
       - zathura
+      - zathura-pdf-mupdf
 
   Ubuntu:
     packages:

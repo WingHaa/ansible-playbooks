@@ -2,9 +2,17 @@
   command:
     cmd: cargo install mise
 
+- name: Install bob
+  command:
+    cmd: cargo install bob-nvim
+
+- name: Souce mise and bob
+  command:
+    cmd: source "{{ lookup('env', 'HOME') }}/.zshrc"
+
 - name: Install neovim
   command:
-    cmd: mise use -gy neovim@nightly
+    cmd: bob use nightly
 
 - name: Install node
   command:
