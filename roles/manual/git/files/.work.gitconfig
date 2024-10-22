@@ -1,3 +1,5 @@
 [user]
 	name = lmquansgt
-	email = lmquan.sgt@gmail.com
+	email = lmquan@saigon-tech.vn
+[core]
+    sshCommand = ssh -i ~/.ssh/id_rsa_sgt -F /dev/null
