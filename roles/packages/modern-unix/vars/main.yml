@@ -3,12 +3,13 @@ modern_unix:
   Archlinux:
     packages:
       - bat
+      - delta
       - duf
       - fd
       - fzf
-      - tldr
       - jq
       - ripgrep
+      - tldr
       - zoxide
 
   Ubuntu:
