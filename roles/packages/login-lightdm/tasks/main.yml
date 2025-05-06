@@ -8,6 +8,6 @@
 
 - name: 'Enable lightdm systemd service'
   systemd:
-    name: 'lighdm'
+    name: 'lightdm'
     enabled: 'yes'
   become: true

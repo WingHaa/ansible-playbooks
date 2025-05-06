@@ -6,6 +6,7 @@ wm_wayland:
       - libappindicator-gtk3
       - mako
       - slurp
+      - satty
       - wtype
       - bemenu-wayland
       - ttf-roboto-mono
