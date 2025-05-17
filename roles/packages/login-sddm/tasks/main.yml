@@ -6,15 +6,6 @@
   vars:
     packages: "{{ login_sddm[ansible_distribution]['packages'] }}"
 
-- name: "Install theme"
-  copy:
-    src: "{{ role_path }}/files/themes/eucalyptus-drop"
-    dest: /usr/share/sddm/themes
-    owner: root
-    group: root
-    mode: '0755'
-  become: true
-
 - name: "Copy sddm config"
   copy:
     src: "{{ role_path }}/files/sddm.conf"
