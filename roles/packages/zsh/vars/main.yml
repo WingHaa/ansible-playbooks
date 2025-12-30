@@ -4,9 +4,3 @@ zsh:
       - fzf
       - zsh-completions
       - zsh
-
-  Ubuntu:
-    packages:
-      - fzf
-      - zsh-completions
-      - zsh

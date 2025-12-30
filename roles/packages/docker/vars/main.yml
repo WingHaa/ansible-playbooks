@@ -9,13 +9,3 @@ docker:
 
     services:
       - docker.socket
-
-  Ubuntu:
-    packages:
-      - docker
-      - docker-compose-plugin
-      - python
-      - python-pip
-
-    services:
-      - docker

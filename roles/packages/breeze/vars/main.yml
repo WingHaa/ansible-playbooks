@@ -5,9 +5,3 @@ breeze:
       - breeze-gtk
       - breeze-icons
       - breeze
-
-  Ubuntu:
-    packages:
-      - breeze-gtk
-      - breeze-icons
-      - breeze
