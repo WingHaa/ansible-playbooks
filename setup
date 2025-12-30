@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ask_passwd() {
+    read -rsp "Enter sudo password: " SUDO_PASS
+    echo
+    read -rsp "Enter Ansible Vault password: " VAULT_PASS
+    echo
+
+    export ANSIBLE_BECOME_PASS="$SUDO_PASS"
+}
+
+full_setup() {
+    echo "Starting full setup..."
+    ask_passwd
+    sudo pacman -Syu \
+        base-devel \
+        git \
+        ansible \
+        python \
+        python-pip \
+        make \
+        --noconfirm --needed
+    ansible-galaxy install -r requirements.yml
+    ansible-playbook -v -i ./inventory/local.ini main.yml --vault-password-file <(printf '%s' "$VAULT_PASS")
+    echo "Full setup completed."
+}
+
+partial_setup() {
+    echo "Starting partial setup..."
+    ask_passwd
+    ansible-playbook -v -i ./inventory/local.ini main.yml --vault-password-file <(printf '%s' "$VAULT_PASS")
+    echo "User setup completed."
+}
+
+# Main script logic
+echo "Choose setup type:"
+echo "1. Full Setup"
+echo "2. Partial Setup"
+read -rp "Enter your choice (1 or 2): " choice
+
+case $choice in
+1)
+    full_setup
+    ;;
+2)
+    partial_setup
+    ;;
+*)
+    full_setup
+    ;;
+esac

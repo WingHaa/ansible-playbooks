@@ -1,15 +1,46 @@
-- name: Cloning .dotfiles
-  git:
-    repo: 'git@github.com:WingHaa/dotfiles.git'
-    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
-    recursive: yes
-    update: yes
-    accept_hostkey: yes
-    version: main
+- name: Check if SSH key exists
+  stat:
+    path: "/home/{{ username }}/.ssh/id_ed25519"
+  register: ssh_key
   tags:
     - dotfiles
 
-- name: Stow dotfiles
-  shell: cd $HOME/.dotfiles && ./setup.sh
+- name: Clone dotfiles with submodules (SSH available)
+  git:
+    repo: 'git@github.com:WingHaa/dotfiles.git'
+    dest: "/home/{{ username }}/.dotfiles"
+    recursive: yes
+    update: yes
+  when: ssh_key.stat.exists
+  tags:
+    - dotfiles
+
+- name: Clone dotfiles without submodules (no SSH)
+  git:
+    repo: 'https://github.com/WingHaa/dotfiles.git'
+    dest: "/home/{{ username }}/.dotfiles"
+    recursive: yes
+    update: yes
+  when: not ssh_key.stat.exists
+  tags:
+    - dotfiles
+
+- name: Check if .bashrc exists
+  stat:
+    path: "/home/{{ username }}/.bashrc"
+  register: bashrc
+  tags:
+    - dotfiles
+
+- name: Backup .bashrc if it exists (move)
+  command: mv /home/{{ username }}/.bashrc /home/{{ username }}/.bashrc.bak
+  when: bashrc.stat.exists
+  tags:
+    - dotfiles
+
+- name: Run dotfiles setup
+  command: ./setup.sh
+  args:
+    chdir: "/home/{{ username }}/.dotfiles"
   tags:
     - dotfiles

@@ -3,7 +3,7 @@ modern_unix:
   Archlinux:
     packages:
       - bat
-      - delta
+      - git-delta
       - duf
       - fd
       - fzf

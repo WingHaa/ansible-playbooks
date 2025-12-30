@@ -11,7 +11,7 @@
         update_cache: yes
         upgrade: yes
       changed_when: False
-      when: ansible_distribution == "Archlinux"
+      when: ansible_facts["distribution"] == "Archlinux"
 
     - name: pre-run | update package cache (debian, etc)
       tags: always
@@ -19,7 +19,7 @@
         update_cache: yes
         upgrade: yes
       changed_when: False
-      when: ansible_distribution in ["Debian", "Ubuntu"]
+      when: ansible_facts["distribution"] in ["Debian", "Ubuntu"]
 
 - name: Install packages
   hosts: localhost

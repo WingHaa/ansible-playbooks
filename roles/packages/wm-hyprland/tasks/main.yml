@@ -4,5 +4,5 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ wm_hyprland[ansible_distribution]['packages'] }}"
-    conflicts: "{{ wm_hyprland[ansible_distribution]['conflicts'] }}"
+    packages: "{{ wm_hyprland[ansible_facts['distribution']]['packages'] }}"
+    conflicts: "{{ wm_hyprland[ansible_facts['distribution']]['conflicts'] }}"

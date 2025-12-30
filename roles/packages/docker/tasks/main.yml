@@ -6,8 +6,8 @@
     include_role:
       name: common/install
     vars:
-      packages: "{{ docker[ansible_distribution]['packages'] }}"
-      services: "{{ docker[ansible_distribution]['services'] }}"
+      packages: "{{ docker[ansible_facts['distribution']]['packages'] }}"
+      services: "{{ docker[ansible_facts['distribution']]['services'] }}"
 
   - name: 'Add users to docker group'
     user:

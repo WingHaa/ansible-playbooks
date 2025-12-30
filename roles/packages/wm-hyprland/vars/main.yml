@@ -11,8 +11,8 @@ wm_hyprland:
       - uwsm
       - qt5-svg
       - qt5-wayland
-      - qt5‑graphicaleffects 
-      - qt5‑quickcontrols2
+      - qt5-graphicaleffects
+      - qt5-quickcontrols2
       - qt6-wayland 
       - rofi-wayland
       - swaync
@@ -24,4 +24,3 @@ wm_hyprland:
       - dunst
       - mako
       - rofi
-      - bison

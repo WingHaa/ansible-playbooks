@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ de_kde[ansible_distribution]['packages'] }}"
+    packages: "{{ de_kde[ansible_facts['distribution']]['packages'] }}"
 
 
 - block:

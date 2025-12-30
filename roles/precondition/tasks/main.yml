@@ -15,10 +15,10 @@
     package:
       name:
         - openssl
-        # - python-pip
-        # - python-setuptools
+        - python
+        - python-pip
+        - python-setuptools
         - rustup
-        - cargo
         - cargo-outdated
       state: present
 

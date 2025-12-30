@@ -20,7 +20,7 @@ base:
       - diff-so-fancy
       - dosfstools
       - git
-      - gnu-netcat
+      - openbsd-netcat
       - gnupg
       - go
       - gzip

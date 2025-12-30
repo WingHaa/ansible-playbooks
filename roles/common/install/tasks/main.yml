@@ -6,13 +6,13 @@
     package:
       name: "{{ packages }}"
       state: latest
-    when: packages is defined and packages
+    when: packages | default([]) | length > 0
 
   - name: Install AUR packages
     kewlfft.aur.aur:
       name: "{{ aur_packages }}"
     become_user: "{{ username }}"
-    when: aur_packages is defined and aur_packages
+    when: aur_packages | default([]) | length > 0
 
   - name: Install pip packages for root
     pip:
@@ -20,7 +20,7 @@
       virtualenv: /opt/virtual_envs/personal_env
       virtualenv_command: "{{ ansible_python_interpreter }} -m venv"
     with_items: "{{ pip_packages }}"
-    when: pip_packages is defined and pip_packages
+    when: pip_packages | default([]) | length > 0
 
   - name: Enable systemd services
     systemd:
@@ -28,13 +28,13 @@
       state: 'started'
       enabled: 'yes'
     with_items: "{{ services }}"
-    when: services is defined and services
+    when: services | default([]) | length > 0
 
   - name: Remove conflicting packages
     package:
       name: "{{ conflicts }}"
       state: absent
-    when: conflicts is defined and conflicts
+    when: conflicts | default([]) | length > 0
 
   become: true
 

@@ -4,7 +4,7 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ vbox_host[ansible_distribution]['packages'] }}"
+    packages: "{{ vbox_host[ansible_facts['distribution']]['packages'] }}"
     aur_packages: "{{ vbox_host.aur_packages }}"
 
 - name: 'Add users to vboxuser, vboxsf group'

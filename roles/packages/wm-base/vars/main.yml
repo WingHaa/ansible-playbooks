@@ -10,6 +10,8 @@ wm_base:
       - acpid
       - alacritty
       - at
+      - blueman
+      - bluez
       - broot
       - btop
       - cronie
@@ -61,7 +63,6 @@ wm_base:
       - qt6-wayland
       - qt6ct
       - shellcheck
-      - sipcalc
       - slurp
       - smbnetfs
       - sshfs

@@ -1,4 +1,4 @@
 private_key_file: "id_ed25519"
 work_key_file: "id_rsa_sgt"
 source: "{{ role_path }}/files/"
-dest: "{{ lookup('env', 'HOME') }}/.ssh/"
+dest: "/home/{{ username }}/.ssh/"

@@ -4,8 +4,8 @@
   include_role:
     name: common/install
   vars:
-    packages: "{{ lxd[ansible_distribution]['packages'] }}"
-    services: "{{ lxd[ansible_distribution]['services'] }}"
+    packages: "{{ lxd[ansible_facts['distribution']]['packages'] }}"
+    services: "{{ lxd[ansible_facts['distribution']]['services'] }}"
 
 
 - name: 'Add users to lxd group'
