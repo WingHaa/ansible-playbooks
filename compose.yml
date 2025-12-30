@@ -1,0 +1,6 @@
+services:
+  ansible:
+    build:
+      context: .
+    container_name: ansible
+    command: sleep infinity

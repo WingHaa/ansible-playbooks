@@ -1,7 +1,7 @@
 TAG ?= arch-pc
 
 arch:
-	docker build . -f arch.Dockerfile -t arch-pc
+	docker build . -f Dockerfile -t arch-pc
 
 start:
 	docker run --rm -it $(TAG) bash
