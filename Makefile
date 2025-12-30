@@ -1,8 +1,5 @@
 TAG ?= arch-pc
 
-ubuntu:
-	docker build . -t ubuntu-pc
-
 arch:
 	docker build . -f arch.Dockerfile -t arch-pc
 

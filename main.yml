@@ -46,5 +46,5 @@
     - role: manual/ssh
     - role: manual/git
     - role: manual/dotfiles
-    - role: manual/utils
+    # - role: manual/utils
     - role: manual/dev-tools

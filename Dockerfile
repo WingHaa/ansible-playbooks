@@ -1,23 +1,25 @@
-FROM ubuntu:focal AS base
+FROM archlinux AS base
 WORKDIR /usr/local/bin
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y software-properties-common curl git build-essential && \
-    apt-add-repository -y ppa:ansible/ansible && \
-    apt-get update && \
-    apt-get install -y curl git ansible build-essential && \
-    apt-get clean autoclean && \
-    apt-get autoremove --yes
+RUN pacman -Syu --noconfirm \
+    base-devel \
+    ansible \
+    python \
+    python-pip \
+    sudo \
+    make \
+    && pacman -Scc --noconfirm
 
-FROM base AS wing
-ARG TAGS
-RUN addgroup --gid 1000 winghaa
-RUN adduser --gecos winghaa --uid 1000 --gid 1000 --disabled-password winghaa
+RUN groupadd --gid 1000 winghaa \
+    && useradd --uid 1000 --gid 1000 --shell /bin/bash --create-home winghaa
+
+RUN echo "winghaa ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 USER winghaa
 WORKDIR /home/winghaa
 
-FROM wing
-COPY . .
-CMD ["sh", "-c", "ansible-playbook $TAGS main.yml"]
+FROM base AS wing
+ARG TAGS
+USER winghaa
+WORKDIR /home/winghaa
 
+COPY . .
