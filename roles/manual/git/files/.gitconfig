@@ -3,5 +3,7 @@
 	email = quanlm24@gmail.com
 [init]
 	defaultBranch = main
-[includeIf "gitdir:~/repo/work/"]
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[includeIf "gitdir:~/repo/work/**/*"]
 	path = ~/.work.gitconfig
